@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+  schoolerp.mvc.ui:
+    image: ${DOCKER_REGISTRY-}schoolerpmvcui
+    build:
+      context: .
+      dockerfile: SchoolERP.MVC.UI/Dockerfile
+    depends_on:
+        - ms-sql-server
+    networks:
+        my-school-network-version2:
+
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "2Secure*Password2"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+    networks:
+       my-school-network-version2:
+
+
+  students.services:
+    image: ${DOCKER_REGISTRY-}studentsservices
+    build:
+      context: .
+      dockerfile: Students.Services/Dockerfile
+    networks:
+      my-school-network-version2:
+
+  courses.services:
+    image: ${DOCKER_REGISTRY-}coursesservices
+    build:
+      context: .
+      dockerfile: Courses.Services/Dockerfile
+    networks:
+      my-school-network-version2:
+
+networks:
+  my-school-network-version2:
+    external: true
+  
+
