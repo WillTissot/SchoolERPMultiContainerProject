@@ -16,6 +16,11 @@ namespace SchoolERP.MVC.UI.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        public ApplicationUsersController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         // GET: ApplicationUsersController
         public async Task<IActionResult> Index()
         {
@@ -258,7 +263,7 @@ namespace SchoolERP.MVC.UI.Controllers
             //get all the available courses
             try
             {
-                var url = "http://Students.Services/api/Student/"; //CHANGE IT -------------------------------- COURSES URL
+                var url = "http://Courses.Services_1/api/Course"; 
                 var restClient = new RestClient(url);
                 var request = new RestRequest(url, RestSharp.Method.Get);
                 RestResponse response = await restClient.ExecuteAsync(request);
@@ -400,10 +405,14 @@ namespace SchoolERP.MVC.UI.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
+            if (id != null)
+            {
+                userId = id.ToString();
+            }
 
             try
             {
-                var url = "http://Students.Services/api/Student/Grades/" + id.ToString();
+                var url = "http://Students.Services/api/Student/Grades/" + userId.ToString();
                 var restClient = new RestClient(url);
                 var request = new RestRequest(url, RestSharp.Method.Get);
                 RestResponse response = await restClient.ExecuteAsync(request);
@@ -412,7 +421,7 @@ namespace SchoolERP.MVC.UI.Controllers
                 {
                     var data = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<StudentCourseVM>>(response.Content);
 
-                    return  View("GradeStudents", data.ToList());                    
+                    return  View("GetCourses", data.ToList());                    
                 }
             }
             catch (Exception)

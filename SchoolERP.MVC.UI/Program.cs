@@ -25,23 +25,12 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.S
     .AddDefaultUI();
 builder.Services.AddControllersWithViews();
 
-//var connectionString = builder.Configuration.GetConnectionString("SchoolERPMVCUIContextConnection") ?? throw new InvalidOperationException("Connection string 'SchoolERPMVCUIContextConnection' not found.");
-
-//builder.Services.AddDbContext<SchoolERPMVCUIContext>(options =>
-//    options.UseSqlServer(connectionString));
-
-//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//    .AddEntityFrameworkStores<SchoolERPMVCUIContext>();
-
-//// Add services to the container.
-//builder.Services.AddControllersWithViews();
-
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    //db.Database.EnsureCreated();
+    db.Database.EnsureCreated();
     db.Database.Migrate();
 }
 
