@@ -421,7 +421,7 @@ namespace SchoolERP.MVC.UI.Controllers
                 {
                     var data = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<StudentCourseVM>>(response.Content);
 
-                    return  View("GetCourses", data.ToList());                    
+                    return  View("GradeStudents", data.ToList());                    
                 }
             }
             catch (Exception)
