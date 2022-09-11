@@ -405,6 +405,8 @@ namespace SchoolERP.MVC.UI.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
+            var userRole = ;
+
             if (id != null)
             {
                 userId = id.ToString();
@@ -421,7 +423,15 @@ namespace SchoolERP.MVC.UI.Controllers
                 {
                     var data = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<StudentCourseVM>>(response.Content);
 
-                    return  View("GradeStudents", data.ToList());                    
+                    if (User.IsInRole("Admin"))
+                    {
+                        return View("GradeStudents", data.ToList());
+                    }
+                    else if (User.IsInRole("Student"))
+                    {
+                        return View("GetCourses", data.ToList());
+                    }
+                                        
                 }
             }
             catch (Exception)
