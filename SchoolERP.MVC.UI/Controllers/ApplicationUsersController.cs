@@ -263,7 +263,7 @@ namespace SchoolERP.MVC.UI.Controllers
             //get all the available courses
             try
             {
-                var url = "http://Courses.Services_1/api/Course"; 
+                var url = "http://Courses.Services/api/Course"; 
                 var restClient = new RestClient(url);
                 var request = new RestRequest(url, RestSharp.Method.Get);
                 RestResponse response = await restClient.ExecuteAsync(request);
