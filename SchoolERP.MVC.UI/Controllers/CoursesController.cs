@@ -23,7 +23,7 @@ namespace SchoolERP.MVC.UI.Controllers
             try
             {
 
-                var url = "http://Courses.Services_1/api/Course"; //GET THE NAME OF THE CONTAINER
+                var url = "http://Courses.Services/api/Course"; //GET THE NAME OF THE CONTAINER
                 var restClient = new RestClient(url);
                 var request = new RestRequest(url, RestSharp.Method.Get);
                 RestResponse response = await restClient.ExecuteAsync(request);
