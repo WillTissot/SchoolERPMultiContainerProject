@@ -2,7 +2,6 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
@@ -19,4 +18,4 @@ RUN dotnet publish "Courses.Services.csproj" -c Release -o /app/publish /p:UseAp
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Courses.Services.dll"]
+ENTRYPOINT ["dotnet", "Courses.Services.dll", "--environment=Development", "--urls",  "http://+:443"]

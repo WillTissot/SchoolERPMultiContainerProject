@@ -7,6 +7,7 @@
     <UserSecretsId>0ebd2853-1bda-4f23-b874-fda789061868</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <PackageProjectUrl>https://localhost:8002/</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
