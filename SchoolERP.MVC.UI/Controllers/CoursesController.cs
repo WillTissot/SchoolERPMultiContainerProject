@@ -55,7 +55,7 @@ namespace SchoolERP.MVC.UI.Controllers
 
             try
             {
-                var url = "http://Courses.Services_1/api/Course/" + id.ToString(); //GET THE NAME OF THE CONTAINER
+                var url = "http://Courses.Services/api/Course/" + id.ToString(); //GET THE NAME OF THE CONTAINER
                 var restClient = new RestClient(url);
                 var request = new RestRequest(url, RestSharp.Method.Get);
                 RestResponse response = await restClient.ExecuteAsync(request);
@@ -93,7 +93,7 @@ namespace SchoolERP.MVC.UI.Controllers
 
             try
             {
-                var url = "http://Courses.Services_1/api/Course"; //GET THE NAME OF THE CONTAINER
+                var url = "http://Courses.Services/api/Course"; //GET THE NAME OF THE CONTAINER
                 var restClient = new RestClient(url);
                 var request = new RestRequest(url, RestSharp.Method.Post);
                 var body = JsonConvert.SerializeObject(course);
@@ -127,7 +127,7 @@ namespace SchoolERP.MVC.UI.Controllers
 
             try
             {
-                var url = "http://Courses.Services_1/api/Course/" + id.ToString(); //GET THE NAME OF THE CONTAINER
+                var url = "http://Courses.Services/api/Course/" + id.ToString(); //GET THE NAME OF THE CONTAINER
                 var restClient = new RestClient(url);
                 var request = new RestRequest(url, RestSharp.Method.Get);
                 RestResponse response = await restClient.ExecuteAsync(request);
@@ -163,7 +163,7 @@ namespace SchoolERP.MVC.UI.Controllers
 
                 try
                 {
-                    var url = "http://Courses.Services_1/api/Course/" + id.ToString(); //GET THE NAME OF THE CONTAINER
+                    var url = "http://Courses.Services/api/Course/" + id.ToString(); //GET THE NAME OF THE CONTAINER
                     var restClient = new RestClient(url);
                     var request = new RestRequest(url, RestSharp.Method.Put);
                     var body = JsonConvert.SerializeObject(course);
@@ -195,7 +195,7 @@ namespace SchoolERP.MVC.UI.Controllers
 
             try
             {
-                var url = "http://Courses.Services_1/api/Course/" + id.ToString(); //GET THE NAME OF THE CONTAINER
+                var url = "http://Courses.Services/api/Course/" + id.ToString(); //GET THE NAME OF THE CONTAINER
                 var restClient = new RestClient(url);
                 var request = new RestRequest(url, RestSharp.Method.Get);
                 RestResponse response = await restClient.ExecuteAsync(request);
@@ -226,7 +226,7 @@ namespace SchoolERP.MVC.UI.Controllers
 
             try
             {
-                var url = "http://Courses.Services_1/api/Course/" + id.ToString(); //GET THE NAME OF THE CONTAINER
+                var url = "http://Courses.Services/api/Course/" + id.ToString(); //GET THE NAME OF THE CONTAINER
                 var restClient = new RestClient(url);
                 var request = new RestRequest(url, RestSharp.Method.Delete);
                 RestResponse response = await restClient.ExecuteAsync(request);
