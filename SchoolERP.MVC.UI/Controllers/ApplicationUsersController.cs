@@ -405,7 +405,6 @@ namespace SchoolERP.MVC.UI.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var userRole = ;
 
             if (id != null)
             {
