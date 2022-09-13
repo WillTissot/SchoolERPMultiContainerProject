@@ -4,7 +4,7 @@ pipeline {
             DOCKER_TOKEN = credentials('docker-push-secret')
             DOCKER_USER = 'marvolo95'
             DOCKER_SERVER = 'ghcr.io'
-            DOCKER_PREFIX = 'SchoolERPMultiContainerProject'
+            DOCKER_PREFIX = 'ghcr.io/marvolo95/SchoolERPMultiContainerProject'
         }
         
 
