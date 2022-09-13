@@ -16,8 +16,8 @@ pipeline {
                 sh '''
                     docker-compose kill -s SIGINT
                     docker-compose up -d --build
-                    while ! docker-compose exec schoolerp.mvc.ui wget -S --spider http://localhost:8002/docs ; do sleep 1; done
-                    docker-compose exec schoolerp.mvc.ui
+                    while ! docker-compose exec schoolerp.mvc.ui wget -S --spider https://localhost:8003/api/Course ; do sleep 1; done
+                    docker-compose exec curl -X 'GET' 'https://localhost:8001/api/Student' -H 'accept: application/json'
                     docker-compose down --volumes
                 '''
             }
