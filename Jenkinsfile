@@ -67,7 +67,7 @@ pipeline {
 		mail to:'itp21116@hua.gr', 
 			subject: "Status of Pipeline: ${currentBuild.fullDisplayName}",
 			body: "${env.BUILD_URL} has result ${surrentBuild.result}"
+		}
 	}
-}
 
 }
